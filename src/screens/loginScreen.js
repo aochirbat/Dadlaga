@@ -3,13 +3,15 @@ import {Typography,Grid,Box,Paper,Link,Checkbox,FormControlLabel,TextField,CssBa
 import { makeStyles } from '@material-ui/core/styles';
 import Back from '../assets/loginbackground.png';
 import RightImage from '../assets/bottom.png';
+import HomeScreen from './HomeScreen';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link as Linkdom
-} from "react-router-dom";
-import HomeScreen from '../screens/HomeScreen';
+  Link as Linkdom,
+  useRouteMatch,
+  useParams
+} from 'react-router-dom';
 const useStyles = makeStyles((theme) => ({
   root: {
     height: '100vh',
@@ -51,7 +53,6 @@ const useStyles = makeStyles((theme) => ({
 export default function SignInSide() {
   const classes = useStyles();
   return (
-    <Router>
       <Grid container component="main" className={classes.root}>
        <CssBaseline />
        <Grid item xs={12} sm={8} md={5} className={classes.left}  component={Paper} elevation={6} square>
@@ -95,7 +96,7 @@ export default function SignInSide() {
               color="primary"
               component={Linkdom}
               className={classes.submit}
-              onClick={() =>{alert('toHome')}}
+             // onClick={() =>{alert('toHome')}}
             >
               Нэвтрэх
             </Button>
@@ -116,14 +117,9 @@ export default function SignInSide() {
         </div>
        </Grid>
       <Grid item xs={false} sm={4} md={7} className={classes.image} />
-      
+        
      </Grid>
-        <Switch>
-           <Route path="/home" >
-              <HomeScreen/>
-            </Route>      
-        </Switch>
-    </Router>
+    
   );
 }
   
