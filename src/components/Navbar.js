@@ -140,7 +140,7 @@ export default function Main() {
         onClose={handleMobileMenuClose}
       >
         <MenuItem>
-          <IconButton aria-label="show 4 new mails" color="inherit">
+          <IconButton to="/notif" component={Linkdom} aria-label="show 4 new mails" color="inherit">
             <Badge badgeContent={4} color="secondary">
               <MailIcon />
             </Badge>
