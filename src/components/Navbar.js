@@ -149,8 +149,8 @@ export default function Main() {
           <p>Messages</p>
         </MenuItem>
         <MenuItem>
-          <IconButton aria-label="show 11 new notifications" color="inherit">
-            <Badge badgeContent={11} color="secondary">
+          <IconButton to="/Customer" component={Linkdom} aria-label="show 11 new notifications" color="inherit">
+            <Badge badgeContent={11} color="main">
               <NotificationsIcon />
             </Badge>
           </IconButton>
@@ -210,7 +210,7 @@ export default function Main() {
                   <MailIcon />
                 </Badge>
               </IconButton>
-              <IconButton aria-label="show 17 new notifications" color="inherit">
+              <IconButton to="/Customer" component={Linkdom} aria-label="show 17 new notifications" color="inherit">
                 <Badge badgeContent={17} color="secondary">
                   <NotificationsIcon />
                 </Badge>
