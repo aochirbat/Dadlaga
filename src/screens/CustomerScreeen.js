@@ -30,7 +30,7 @@ export default function FullWidthGrid(){
                  <div style={{flex:1,flexDirection:'row',marginTop:50}}>      
                     <Grid container direction='column' spacing={1}>
                       <Grid item xs={12}  >
-                        <Paper className={classes.paper2}>Grid for ochiroo</Paper>
+                        <Paper className={classes.paper2}>daawdawdawdwao</Paper>
                       </Grid>
                       <Grid item xs={12}  >
                          <Paper className={classes.paper2}>Grid for ochiroo</Paper>
