@@ -14,13 +14,13 @@ import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined';
 import TimelineOutlinedIcon from '@material-ui/icons/TimelineOutlined';
 import CardMembershipOutlinedIcon from '@material-ui/icons/CardMembershipOutlined';
 import { grey } from '@material-ui/core/colors';
-
+import uxceo from "../Images/Avatar1.png";
 
 const useStyles = makeStyles((theme) => ({
  root: {
-    flexGrow: 1,
-    border:1,
-    marginBottom: theme.spacing(2),
+    flexGrow:1,
+    width:'100%',
+    height:'100%'
  },
   profile: {
   },
@@ -39,13 +39,13 @@ const useStyles = makeStyles((theme) => ({
       fontFamily: 'Roboto',
       fontSize: 12,
   },
-  userAvatar:{
-      padding: theme.spacing(1),
+  userAvatar:{    
       display: 'flex',
       flexDirection:'row',
       justifyContent: 'left',
       flexGrow:1,
-      backgroundColor:'red',
+      height:120,
+      width:'100%',      
   },
   editButton: {
       display: 'block',
@@ -68,13 +68,11 @@ const useStyles = makeStyles((theme) => ({
   },
   avatar:{
     width:'60%',
-    backgroundColor:'grey'
   },
   editbtn:{
      top:0,
      right:0,
      width:'40%',
-     backgroundColor:'yellow',
      alignItems:'top',
      justifyContent:'top'
   } 
@@ -124,9 +122,8 @@ export default function Dashboard(props){
     setSelectedIndex(index);
   };
   return( 
-    <div className={classes.root}>
-          <Paper >
-        <Grid container item xs={12}>
+   <Paper style={{height:"90vh"}}> 
+    <div className={classes.root}>     
       <div>
         <div className={classes.userAvatar} >
            <div className={classes.avatar}>
@@ -138,19 +135,18 @@ export default function Dashboard(props){
             }}
             variant="dot"
             >
-            <Avatar alt="Ochirbat amar" src="/amar/src/Images/Avatar1.png" />
+             <Avatar alt="Remy Sharp" src={uxceo} style={{height:110,width:110,margin:2,padding:2}}/>
                </StyledBadge>
             </div>
             <div className={classes.editbtn}>
                  <Button size="small" color="primary" className={classes.editButton}>Edit</Button>
             </div>
-         </div>
+      </div>
             <div borderBottom={1} borderColor={grey[500]} className={classes.userInfo}>
       <a className={classes.userName}>{name}</a><br/>
       <a className={classes.info}>{description}</a>
             </div>
         </div>
-        </Grid>
         {props.type==1?  
              <Grid container xs={12} direction="row">
               <Grid item xs={6}>
@@ -214,7 +210,8 @@ export default function Dashboard(props){
                   <Paper></Paper>
             </div>
          </Grid>
-         </Paper>
+         
      </div>
+        </Paper>
   );
 }
