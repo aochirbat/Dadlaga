@@ -1,6 +1,7 @@
 import React from 'react';
 import DashboardNavBar from '../components/DashboardNavbar';
 import Dashboard from '../components/Dashboard';
+import DashboardStatic from '../components/DashboardStatic';
 import 
 {BrowserRouter as Router,Switch,Route}
 from 'react-router-dom';
@@ -13,38 +14,32 @@ const useStyles = makeStyles((theme) => ({
 export default function FullWidthGrid(){
   const classes = useStyles();
   return (
-    <Container maxWidth="lg">
-       <Grid 
-          container 
-          direction='column' 
-          justify="space-between"
-          height="10%"  
-          spacing={1}>
-        <Grid item xs={12} spacing={1}>
-          <DashboardNavBar/>
-       </Grid> 
-       <Grid item xs={12}  height="90%"  spacing={1}>
-            <Grid container direction='row' spacing={1}>
-                <Grid item xs={2}>                                  
-                   <Grid container 
-                        direction='column' 
-                        spacing={1}>
+    <div style={{width:'100%',height:'100%',flexGrow:1}}>
+       <div style={{flex:1,flexDirection:'column'}}>
+         <div style={{flexGrow:1}}>
+           <DashboardNavBar/>
+         </div> 
+         <div style={{flexDirection:'row',width:'100%',height:'100%',display:'flex'}}>
+                {/* left dashboard */}
+                 <div style={{flexDirection:'row',width:'15%'}}>                                 
+                    <div style={{flexDirection:'row',width:'100%',marginTop:50}}>                       
                        <Dashboard  type={2}/>
-                   </Grid>
-                 </Grid>
-                 <Grid item xs={10} className={classes.nemelt}>
+                   </div>
+                 </div>
+                 {/* statistic side */}
+                 <div style={{flex:1,flexDirection:'row',marginTop:50}}>      
                     <Grid container direction='column' spacing={1}>
                       <Grid item xs={12}  >
                         <Paper className={classes.paper2}>Grid for ochiroo</Paper>
                       </Grid>
                       <Grid item xs={12}  >
-                        <Paper className={classes.paper2}>Grid for ochiroo</Paper>
+                         <Paper className={classes.paper2}>Grid for ochiroo</Paper>
                       </Grid>
                     </Grid>
-                </Grid>
-            </Grid>
-         </Grid>
-        </Grid>
-      </Container>
+                 </div>
+           
+           </div>
+         </div>
+      </div>
   );
 }
