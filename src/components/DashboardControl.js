@@ -7,6 +7,8 @@ import {Grid , Paper} from '@material-ui/core';
 const useStyles = makeStyles((theme) => ({
   root:{
     flexGrow: 1,
+    width: '100%',
+    height: '100%',
   },
   paper1:{
     background: theme.background,
@@ -45,8 +47,7 @@ export default function Control(){
     <Grid 
     container 
     direction='column' 
-    justify='flex-start' 
-    alignItems='baseline' 
+    justify='flex-start'  
     spacing={1}>
         <Grid container direction='row' xs={12} spacing={1}>
          <Grid item xs>
@@ -65,14 +66,7 @@ export default function Control(){
             </ThemeProvider>
           </Grid>
         </Grid> 
-        <Grid container direction="row" xs={12} spacing={1}>
-          <Grid item xs={6}>
-            <Paper>1</Paper>
-          </Grid>
-          <Grid item xs={6}>
-            <Paper>2</Paper>
-          </Grid>
-        </Grid>
+     
     </Grid>
       </div>
   )

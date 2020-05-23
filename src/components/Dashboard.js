@@ -122,7 +122,7 @@ export default function Dashboard(props){
     setSelectedIndex(index);
   };
   return( 
-   <Paper style={{height:"90vh"}}> 
+   <Paper style={{height:"100%"}}> 
     <div className={classes.root}>     
       <div>
         <div className={classes.userAvatar} >

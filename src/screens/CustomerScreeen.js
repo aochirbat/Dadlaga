@@ -2,6 +2,7 @@ import React from 'react';
 import DashboardNavBar from '../components/DashboardNavbar';
 import Dashboard from '../components/Dashboard';
 import DashboardStatic from '../components/DashboardStatic';
+import DashboardControl from '../components/DashboardControl';
 import 
 {BrowserRouter as Router,Switch,Route}
 from 'react-router-dom';
@@ -19,27 +20,26 @@ export default function FullWidthGrid(){
          <div style={{flexGrow:1}}>
            <DashboardNavBar/>
          </div> 
-         <div style={{flexDirection:'row',width:'100%',height:'100%',display:'flex'}}>
+         <Grid container direction="row"  xs={12} spacing={2}>
                 {/* left dashboard */}
-                 <div style={{flexDirection:'row',width:'15%'}}>                                 
+                <Grid item xs={2}>
+                 <div style={{flexDirection:'row'}}>                                 
                     <div style={{flexDirection:'row',width:'100%',marginTop:50}}>                       
                        <Dashboard  type={2}/>
                    </div>
                  </div>
+                 </Grid>
                  {/* statistic side */}
+                 <Grid item xs={10}>
                  <div style={{flex:1,flexDirection:'row',marginTop:50}}>      
                     <Grid container direction='column' spacing={1}>
-                      <Grid item xs={12}  >
-                        <Paper className={classes.paper2}>daawdawdawdwao</Paper>
-                      </Grid>
-                      <Grid item xs={12}  >
-                         <Paper className={classes.paper2}>Grid for ochiroo</Paper>
-                      </Grid>
+                      <DashboardControl/>
+                      <DashboardStatic/>
                     </Grid>
                  </div>
-           
-           </div>
-         </div>
+                 </Grid>
+        </Grid>
       </div>
+    </div>
   );
 }
