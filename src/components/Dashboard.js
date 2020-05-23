@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect ,useState} from 'react';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -90,7 +90,18 @@ const StyledBadge = withStyles((theme) => ({
         },
       },
     }))(Badge);
-export default function Dashboard(){
+
+  
+export default function Dashboard(props){
+  const [name,setName]=useState('');
+  const [description,setDescription]=useState('')    
+      useEffect(()=>{
+            alert('type:'+props.type)
+            setName(props.type==1?'Ochirbat Amar':'Golden Gym')
+            setDescription(props.type==1?'Male, 21 years old':'Fitness,Power,Yoga etc..')
+       },[])  
+
+
   const classes = useStyles();
   const [selectedIndex, setSelectedIndex] = React.useState(1);
 
@@ -120,12 +131,13 @@ export default function Dashboard(){
             </Grid>
          </div>
             <div borderBottom={1} borderColor={grey[500]} className={classes.userInfo}>
-                  <a className={classes.userName}>Ochirbat Amar</a><br/>
-                  <a className={classes.info}>Male, 21 years old</a>
+      <a className={classes.userName}>{name}</a><br/>
+      <a className={classes.info}>{description}</a>
             </div>
         </div>
         </Grid>
-        <Grid container xs={12} direction="row">
+        {props.type==1?  
+             <Grid container xs={12} direction="row">
               <Grid item xs={6}>
                     <div className={classes.userHeight}>
                         <b style={{fontSize: '12px'}}>HEIGHT</b><br/>
@@ -137,8 +149,9 @@ export default function Dashboard(){
                         <b style={{fontSize: '12px'}}>WIDTH</b><br/>
                         <a style={{fontSize: '10px'}}>50 kg</a>
                     </div>
-              </Grid>
-        </Grid>
+              </Grid>           
+           </Grid>:null
+         }
         <Grid item xs={12}>
         <div>
           <List component="nav" aria-label="main mailbox folders">
