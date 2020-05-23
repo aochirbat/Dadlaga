@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) => ({
  root: {
     flexGrow: 1,
     border:1,
-    marginBottom:200
+    marginBottom: theme.spacing(2),
  },
   profile: {
   },

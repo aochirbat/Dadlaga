@@ -1,6 +1,7 @@
 import React from 'react';
 import DashboardNavBar from '../components/DashboardNavbar';
 import Dashboard from '../components/Dashboard';
+import DashboardControl from '../components/DashboardControl';
 import 
 {BrowserRouter as Router,Switch,Route}
 from 'react-router-dom';
@@ -24,7 +25,7 @@ export default function FullWidthGrid(){
           <DashboardNavBar/>
        </Grid> 
        <Grid item xs={12}  height="90%"  spacing={1}>
-            <Grid container direction='row' spacing={1}>
+            <Grid container direction='row' spacing={5}>
                 <Grid item xs={2}>                                  
                    <Grid container 
                         direction='column' 
@@ -34,12 +35,7 @@ export default function FullWidthGrid(){
                  </Grid>
                  <Grid item xs={10} className={classes.nemelt}>
                     <Grid container direction='column' spacing={1}>
-                      <Grid item xs={12}  >
-                        <Paper className={classes.paper2}>Grid for ochiroo</Paper>
-                      </Grid>
-                      <Grid item xs={12}  >
-                        <Paper className={classes.paper2}>Grid for ochiroo</Paper>
-                      </Grid>
+                        <DashboardControl/>                       
                     </Grid>
                 </Grid>
             </Grid>
