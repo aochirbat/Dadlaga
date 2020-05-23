@@ -1,58 +1,45 @@
-import React, { useEffect ,useState} from 'react';
-import { makeStyles, withStyles } from '@material-ui/core/styles';
-
-import {Button, Avatar , Paper , Grid ,Badge , Box} from '@material-ui/core';
-import ItemsCarousel from 'react-items-carousel';
-
+import React from 'react';
+import DashboardNavBar from '../components/DashboardNavbar';
+import Dashboard from '../components/Dashboard';
+import DashboardStatic from '../components/DashboardStatic';
+import 
+{BrowserRouter as Router,Switch,Route}
+from 'react-router-dom';
+import {Container,Grid,Paper,makeStyles} from '@material-ui/core';
 const useStyles = makeStyles((theme) => ({
- root: {
-    flexGrow:1,
-    width:'100%',
-    height:'100%'
- },
- 
+  root: {
+    flexGrow: 1,
+  },
 }));
-  
-export default function DashboardStatic(props){
-  const [children,setChildren]=useState([]);
-  const [activeItemIndex,setActiveItemIndex]=useState(0);
-  useEffect(()=>{
-        
-  },[])  
+export default function FullWidthGrid(){
   const classes = useStyles();
- 
-  
- function changeActiveItem(activeItemIndex){}//setActiveItemIndex({ activeItemIndex })};
-  return( 
-   <Paper style={{height:100,width:'100%'}}>
-       <ItemsCarousel
-        // Placeholder configurations
-        enablePlaceholder
-        numberOfPlaceholderItems={5}
-        minimumPlaceholderTime={1000}
-        placeholderItem={<div style={{ height: 200, background: '#900' }}>Placeholder</div>}
-
-        // Carousel configurations
-        numberOfCards={3}
-        gutter={12}
-        showSlither={true}
-        firstAndLastGutter={true}
-        freeScrolling={false}
-
-        // Active item configurations
-        requestToChangeActive={changeActiveItem(activeItemIndex)}
-        activeItemIndex={activeItemIndex}
-        activePosition={'center'}
-
-        chevronWidth={24}
-        rightChevron={'>'}
-        leftChevron={'<'}
-        outsideChevron={false}
-      >
-       <div key={1} style={{ height: 200, background: '#333' }}>{1}</div>
-       <div key={2} style={{ height: 200, background: '#333' }}>{2}</div>
-       <div key={3} style={{ height: 200, background: '#333' }}>{3}</div>
-      </ItemsCarousel> 
-   </Paper>
+  return (
+    <div style={{width:'100%',height:'100%',flexGrow:1}}>
+       <div style={{flex:1,flexDirection:'column'}}>
+         <div style={{flexGrow:1}}>
+           <DashboardNavBar/>
+         </div> 
+         <div style={{flexDirection:'row',width:'100%',height:'100%',display:'flex'}}>
+                {/* left dashboard */}
+                 <div style={{flexDirection:'row',width:'15%'}}>                                 
+                    <div style={{flexDirection:'row',width:'100%',marginTop:50}}>                       
+                       <Dashboard  type={2}/>
+                   </div>
+                 </div>
+                 {/* statistic side */}
+                 <div style={{flex:1,flexDirection:'row',marginTop:50}}>      
+                    <Grid container direction='column' spacing={1}>
+                      <Grid item xs={12}  >
+                        <Paper className={classes.paper2}>Grid for ochiroo</Paper>
+                      </Grid>
+                      <Grid item xs={12}  >
+                         <Paper className={classes.paper2}>Grid for ochiroo</Paper>
+                      </Grid>
+                    </Grid>
+                 </div>
+           
+           </div>
+         </div>
+      </div>
   );
 }
