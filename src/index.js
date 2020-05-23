@@ -3,11 +3,28 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-
+import {createMuiTheme , MuiThemeProvider} from '@material-ui/core'
+import { 
+  red , 
+  amber,
+  grey,
+  lightBlue,
+  deepOrange,
+  blue
+ } from '@material-ui/core/colors';
+const theme = createMuiTheme({
+  palette:{
+    primary: lightBlue,
+    secondary:{
+      main: blue[50],
+    },
+    alertColor: deepOrange.A700, 
+  }
+})
 ReactDOM.render(
-  <React.StrictMode>
+  <MuiThemeProvider theme={theme}>
     <App />
-  </React.StrictMode>,
+  </MuiThemeProvider>,
   document.getElementById('root')
 );
 

@@ -1,0 +1,191 @@
+import React from 'react';
+import { makeStyles, withStyles } from '@material-ui/core/styles';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemIcon from '@material-ui/core/ListItemIcon';
+import ListItemText from '@material-ui/core/ListItemText';
+import Divider from '@material-ui/core/Divider';
+import { Tooltip } from '@material-ui/core';
+import {Button, Avatar , Paper , Grid ,Badge , Box} from '@material-ui/core';
+import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
+import OutlinedFlagIcon from '@material-ui/icons/OutlinedFlag';
+import DateRangeOutlinedIcon from '@material-ui/icons/DateRangeOutlined';
+import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined';
+import TimelineOutlinedIcon from '@material-ui/icons/TimelineOutlined';
+import CardMembershipOutlinedIcon from '@material-ui/icons/CardMembershipOutlined';
+import { grey } from '@material-ui/core/colors';
+
+
+const useStyles = makeStyles((theme) => ({
+ root: {
+    flexGrow: 1,
+ },
+  profile: {
+  },
+  paper: {
+      
+  },
+  userInfo:{
+      textAlign: 'left',
+      padding: theme.spacing(1),
+  },
+  userName:{
+      fontFamily: 'Roboto',
+      fontSize: 18,
+  },
+  info: {
+      fontFamily: 'Roboto',
+      fontSize: 12,
+  },
+  userAvatar:{
+      padding: theme.spacing(1),
+      display: 'flex',
+      justifyContent: 'left',
+  },
+  editButton: {
+      display: 'block',
+      justifyContent: 'right',
+      marginLeft: 'auto',
+  },
+  bodyIndex:{
+        display: 'block',
+        fontFamily: 'Roboto',
+        textAlign: 'center',
+        width: '100%',
+  },
+  userHeight:{
+      textAlign: 'center',
+      border: '1px grey'
+  },
+  userWidth:{
+      textAlign: 'center',
+      border: '1px grey'
+  }
+}));
+const StyledBadge = withStyles((theme) => ({
+      badge: {
+        backgroundColor: '#44b700',
+        color: '#44b700',
+        boxShadow: `0 0 0 2px ${theme.palette.background.paper}`,
+        '&::after': {
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          width: '100%',
+          height: '100%',
+          borderRadius: '50%',
+          animation: '$ripple 1.2s infinite ease-in-out',
+          border: '1px solid currentColor',
+          content: '""',
+        },
+      },
+      '@keyframes ripple': {
+        '0%': {
+          transform: 'scale(.8)',
+          opacity: 1,
+        },
+        '100%': {
+          transform: 'scale(2.4)',
+          opacity: 0,
+        },
+      },
+    }))(Badge);
+export default function Dashboard(){
+  const classes = useStyles();
+  const [selectedIndex, setSelectedIndex] = React.useState(1);
+
+  const handleListItemClick = (event, index) => {
+    setSelectedIndex(index);
+  };
+  return( 
+    <div className={classes.root}>
+          <Paper ></Paper>
+        <Grid container item xs={12}>
+      <div>
+        <div className={classes.userAvatar} >
+            <Grid item xs={6}>
+            <StyledBadge
+            overlap="circle"
+            anchorOrigin={{
+            vertical: 'bottom',
+            horizontal: 'right',
+            }}
+            variant="dot"
+            >
+            <Avatar alt="Ochirbat amar" src="/amar/src/Images/Avatar1.png" />
+            </StyledBadge>
+            </Grid>
+            <Grid item xs={6}>
+            <Button size="small" color="primary" className={classes.editButton}>Edit</Button>
+            </Grid>
+         </div>
+            <div borderBottom={1} borderColor={grey[500]} className={classes.userInfo}>
+                  <a className={classes.userName}>Ochirbat Amar</a><br/>
+                  <a className={classes.info}>Male, 21 years old</a>
+            </div>
+        </div>
+        </Grid>
+        <Grid container xs={12} direction="row">
+              <Grid item xs={6}>
+                    <div className={classes.userHeight}>
+                        <b style={{fontSize: '12px'}}>HEIGHT</b><br/>
+                        <a style={{fontSize: '10px'}}>185 cm</a>
+                    </div>
+              </Grid>
+              <Grid item xs={6}>
+                    <div className={classes.userWidth}>
+                        <b style={{fontSize: '12px'}}>WIDTH</b><br/>
+                        <a style={{fontSize: '10px'}}>50 kg</a>
+                    </div>
+              </Grid>
+        </Grid>
+        <Grid item xs={12}>
+        <div>
+          <List component="nav" aria-label="main mailbox folders">
+                  <ListItem button>
+                    <ListItemIcon>
+                        <HomeOutlinedIcon />
+                    </ListItemIcon>
+                        <ListItemText primary="Home" />
+                  </ListItem>
+                  <ListItem button>
+                     <ListItemIcon>
+                        <OutlinedFlagIcon/>
+                     </ListItemIcon>
+                         <ListItemText primary="My goals"/>
+                   </ListItem>
+                    <ListItem button>
+                      <ListItemIcon>
+                        <DateRangeOutlinedIcon/>
+                     </ListItemIcon>
+                        <ListItemText primary="Schedule"/>
+                  </ListItem>
+                  <ListItem button>
+                        <ListItemIcon>
+                              <TimelineOutlinedIcon/>
+                        </ListItemIcon>
+                        <ListItemText primary="Statistics"/>
+                  </ListItem>
+                  <ListItem button>
+                        <ListItemIcon>
+                              <CardMembershipOutlinedIcon/>
+                        </ListItemIcon>
+                        <ListItemText primary="Achivements"/>
+                  </ListItem>
+                  <ListItem button>
+                        <ListItemIcon>
+                              <SettingsOutlinedIcon/>
+                        </ListItemIcon>
+                        <ListItemText primary="Settings"/>
+                  </ListItem>
+          </List>
+      </div>
+        </Grid>
+         <Grid item xs={12}>
+            <div>
+                  <Paper></Paper>
+            </div>
+         </Grid>
+     </div>
+  );
+}
