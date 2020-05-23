@@ -19,6 +19,8 @@ import { grey } from '@material-ui/core/colors';
 const useStyles = makeStyles((theme) => ({
  root: {
     flexGrow: 1,
+    border:1,
+    marginBottom:200
  },
   profile: {
   },
@@ -40,7 +42,10 @@ const useStyles = makeStyles((theme) => ({
   userAvatar:{
       padding: theme.spacing(1),
       display: 'flex',
+      flexDirection:'row',
       justifyContent: 'left',
+      flexGrow:1,
+      backgroundColor:'red',
   },
   editButton: {
       display: 'block',
@@ -60,7 +65,19 @@ const useStyles = makeStyles((theme) => ({
   userWidth:{
       textAlign: 'center',
       border: '1px grey'
-  }
+  },
+  avatar:{
+    width:'60%',
+    backgroundColor:'grey'
+  },
+  editbtn:{
+     top:0,
+     right:0,
+     width:'40%',
+     backgroundColor:'yellow',
+     alignItems:'top',
+     justifyContent:'top'
+  } 
 }));
 const StyledBadge = withStyles((theme) => ({
       badge: {
@@ -95,13 +112,11 @@ const StyledBadge = withStyles((theme) => ({
 export default function Dashboard(props){
   const [name,setName]=useState('');
   const [description,setDescription]=useState('')    
-      useEffect(()=>{
-            alert('type:'+props.type)
+  useEffect(()=>{
+           
             setName(props.type==1?'Ochirbat Amar':'Golden Gym')
             setDescription(props.type==1?'Male, 21 years old':'Fitness,Power,Yoga etc..')
-       },[])  
-
-
+  },[])  
   const classes = useStyles();
   const [selectedIndex, setSelectedIndex] = React.useState(1);
 
@@ -110,25 +125,25 @@ export default function Dashboard(props){
   };
   return( 
     <div className={classes.root}>
-          <Paper ></Paper>
+          <Paper >
         <Grid container item xs={12}>
       <div>
         <div className={classes.userAvatar} >
-            <Grid item xs={6}>
-            <StyledBadge
-            overlap="circle"
-            anchorOrigin={{
-            vertical: 'bottom',
-            horizontal: 'right',
+           <div className={classes.avatar}>
+               <StyledBadge
+                overlap="circle"
+               anchorOrigin={{
+                vertical: 'bottom',
+               horizontal: 'right',
             }}
             variant="dot"
             >
             <Avatar alt="Ochirbat amar" src="/amar/src/Images/Avatar1.png" />
-            </StyledBadge>
-            </Grid>
-            <Grid item xs={6}>
-            <Button size="small" color="primary" className={classes.editButton}>Edit</Button>
-            </Grid>
+               </StyledBadge>
+            </div>
+            <div className={classes.editbtn}>
+                 <Button size="small" color="primary" className={classes.editButton}>Edit</Button>
+            </div>
          </div>
             <div borderBottom={1} borderColor={grey[500]} className={classes.userInfo}>
       <a className={classes.userName}>{name}</a><br/>
@@ -199,6 +214,7 @@ export default function Dashboard(props){
                   <Paper></Paper>
             </div>
          </Grid>
+         </Paper>
      </div>
   );
 }
