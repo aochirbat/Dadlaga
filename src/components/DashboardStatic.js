@@ -63,7 +63,7 @@ export default function FullWidthGrid(){
           <Typography variant="h3" style={{color:'#88e3c9'}} gutterBottom>Statistic</Typography> 
           <Typography variant="h4" gutterBottom>&nbsp;&nbsp; Last Month</Typography>
        </div>
-       <ResponsiveContainer width='100%' height={300}>        
+       <ResponsiveContainer width='100%' height={100}>        
               <AreaChart
                     data={data}
                     margin={{
