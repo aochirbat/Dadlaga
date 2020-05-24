@@ -17,7 +17,7 @@ import MoreIcon from '@material-ui/icons/MoreVert';
 import TextField from '@material-ui/core/TextField';
 import CalendarIcon from '@material-ui/icons/CalendarTodayOutlined';
 import LogOutIcon from '@material-ui/icons/ExitToAppOutlined';
-import { Grid } from '@material-ui/core';
+import { Grid, Container ,Paper } from '@material-ui/core';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -59,104 +59,23 @@ const useStyles = makeStyles((theme) => ({
   },
   sectionCalendar: {
     display: 'flex',
-  
   },
   
 }));
 
 export default function PrimarySearchAppBar() {
   const classes = useStyles();
-  const [anchorEl, setAnchorEl] = React.useState(null);
-  const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
-
-  const isMenuOpen = Boolean(anchorEl);
-  const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-
-  const handleProfileMenuOpen = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleMobileMenuClose = () => {
-    setMobileMoreAnchorEl(null);
-  };
-
-  const handleMenuClose = () => {
-    setAnchorEl(null);
-    handleMobileMenuClose();
-  };
-
-  const handleMobileMenuOpen = (event) => {
-    setMobileMoreAnchorEl(event.currentTarget);
-  };
-
-  const menuId = 'primary-search-account-menu';
-  const renderMenu = (
-    <Menu
-      anchorEl={anchorEl}
-      anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-      id={menuId}
-      keepMounted
-      transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-      open={isMenuOpen}
-      onClose={handleMenuClose}
-    >
-      <MenuItem onClick={handleMenuClose}>Profile</MenuItem>
-      <MenuItem onClick={handleMenuClose}>My account</MenuItem>
-    </Menu>
-  );
-
-  const mobileMenuId = 'primary-search-account-menu-mobile';
-  const renderMobileMenu = (
-    <Menu
-      anchorEl={mobileMoreAnchorEl}
-      anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
-      id={mobileMenuId}
-      keepMounted
-      transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-      open={isMobileMenuOpen}
-      onClose={handleMobileMenuClose}
-    >
-      <MenuItem>
-        <IconButton aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="secondary">
-            <MailIcon />
-          </Badge>
-        </IconButton>
-        <p>Messages</p>
-      </MenuItem>
-      <MenuItem>
-        <IconButton aria-label="show 11 new notifications" color="inherit">
-          <Badge badgeContent={11} color="secondary">
-            <NotificationsIcon />
-          </Badge>
-        </IconButton>
-        <p>Notifications</p>
-      </MenuItem>
-      <MenuItem onClick={handleProfileMenuOpen}>
-        <IconButton
-          aria-label="account of current user"
-          aria-controls="primary-search-account-menu"
-          aria-haspopup="true"
-          color="inherit"
-        >
-          <AccountCircle />
-        </IconButton>
-        <p>Profile</p>
-      </MenuItem>
-    </Menu>
-  );
-
   return (
     <div className={classes.root}>
       <AppBar position="fixed" color="main">
         <Toolbar>
+          <Grid item xs={3}>
           <Typography className={classes.title} variant="h5"  noWrap>
            SPORT <span>INDEX</span>
           </Typography>
+          </Grid>
+          <Grid item xs={3} >
           <div className={classes.sectionCalendar} >
-            <IconButton color="inherit">
-              <CalendarIcon/>
-            </IconButton>
             <TextField
               color="primary"
               id="date"
@@ -165,23 +84,24 @@ export default function PrimarySearchAppBar() {
               defaultValue="2020-05-20"
               InputLabelProps={{shrink: true,}}/>
           </div>
-          <div className={classes.root} />
-          <div className={classes.sectionDesktop}>
-            <IconButton aria-label="show 4 new notifications" color="inherit">
-              <Badge badgeContent={4} color="alertColor">
-                <NotificationsIcon />
-              </Badge>
+          </Grid>
+          <Grid item xs={3}></Grid>
+            <Grid item xs={3} direction="row-reverse" justify="flex-start" alignItems="flex-start">            
+              <IconButton aria-label="show 4 new notifications" color="primary">
+                <Badge badgeContent={4} color="inherit">
+                  <NotificationsIcon />
+                </Badge>
             </IconButton>
-            <IconButton aria-label="Log out" color="inherit">
-              <Badge >
-                <LogOutIcon/>
-              </Badge>
+              <IconButton aria-label="Log out" color="alerColor">
+                <Badge >
+                  <LogOutIcon/>
+                </Badge>
             </IconButton>
-          </div>
+              </Grid>
         </Toolbar>
       </AppBar>
-      {renderMobileMenu}
-      {renderMenu}
+      {/* {renderMobileMenu} */}
+      {/* {renderMenu} */}
     </div>
   );
 }

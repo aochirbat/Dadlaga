@@ -9,15 +9,14 @@ import {
   amber,
   grey,
   lightBlue,
-  deepOrange
+  deepOrange,
+  blue
  } from '@material-ui/core/colors';
 const theme = createMuiTheme({
   palette:{
     primary: lightBlue,
     secondary:{
-      main: grey[50],
-      textBlack: grey[500],
-      textWhite: grey[50]
+      main: blue[50],
     },
     alertColor: deepOrange.A700, 
   }
