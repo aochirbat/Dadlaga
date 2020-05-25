@@ -182,7 +182,7 @@ export default function Dashboard(props){
                      <ListItemIcon>
                         <OutlinedFlagIcon/>
                      </ListItemIcon>
-                         <ListItemText primary="My Goals"/>
+                         <ListItemText primary={props.type==1?"My Goals":"Our Goals"}/>
                    </ListItem>
                     <ListItem button button to="/Customer/Schedule" component={Linkdom}>
                       <ListItemIcon>
