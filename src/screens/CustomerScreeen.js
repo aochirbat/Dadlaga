@@ -5,7 +5,7 @@ import DashboardMygoals from './DashboardMygoals';
 import DashboardStatistics from './DashboardStatistics';
 import DashboardSchedule from './DashboardSchedule';
 import DashBoardSettings from './DashBoardSettings';
-import DashboarHome from './DashboardHome'
+import DashboarHome from './DashboardHome';
 import 
 {BrowserRouter as Router,Switch,Route}
 from 'react-router-dom';
@@ -29,7 +29,7 @@ export default function Customer(props){
                 <Grid item xs={2}>
                  <div style={{flexDirection:'row'}}>                                 
                     <div style={{flexDirection:'row',width:'100%',marginTop:50}}>                       
-                       <Dashboard  type={2}/>
+                       <Dashboard  type={1}/>
                    </div>
                  </div>
                  </Grid>

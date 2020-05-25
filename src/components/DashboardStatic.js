@@ -72,7 +72,7 @@ export default function FullWidthGrid(){
            </Grid>   
        </Grid>
        <Grid item xs={12}>   
-           <ResponsiveContainer width={'100%'} height={200}>        
+           <ResponsiveContainer width={'100%'} height={100}>        
               <AreaChart
                     data={data}
                     margin={{
