@@ -58,9 +58,24 @@ const useStyles = makeStyles((theme) => ({
     },
   },
   sectionCalendar: {
-    display: 'flex',
+    position: 'relative',
+    display: 'block',
   },
-  
+  divIcon:{
+    display: 'block',
+    alignItems: 'center',
+    justifyContent: 'center',
+    position: 'relative',
+    height: '100%',
+  },
+  notifIcon:{
+    display: 'block',
+    height: '50%',
+  },
+  LogOutIcon:{
+    display: 'block',
+    height: '50%'
+  }
 }));
 
 export default function PrimarySearchAppBar() {
@@ -86,17 +101,28 @@ export default function PrimarySearchAppBar() {
           </div>
           </Grid>
           <Grid item xs={3}></Grid>
-            <Grid item xs={3} direction="row-reverse" justify="flex-start" alignItems="flex-start">            
-              <IconButton aria-label="show 4 new notifications" color="primary">
-                <Badge badgeContent={4} color="inherit">
-                  <NotificationsIcon />
+            <Grid item xs={3} direction="row-reverse" justify="flex-start" alignItems="flex-start">  
+            <div className={classes.divIcon}>          
+              <IconButton aria-label="show 4 new notifications" color='inherit'>
+                <div className={classes.notifIcon}>
+                <Badge badgeContent={4}>
+                  <div >
+                    <NotificationsIcon />
+                  </div>
                 </Badge>
+                </div>
             </IconButton>
-              <IconButton aria-label="Log out" color="alerColor">
+            
+              <IconButton aria-label="Log out" color="inherit">
+              <div className={classes.LogOutIcon}>
                 <Badge >
+                  <div>
                   <LogOutIcon/>
+                  </div>               
                 </Badge>
-            </IconButton>
+              </div> 
+              </IconButton>
+            </div>
               </Grid>
         </Toolbar>
       </AppBar>

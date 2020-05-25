@@ -1,15 +1,17 @@
 import React from 'react';
 import DashboardNavBar from '../components/DashboardNavbar';
-import Dashboard from '../components/Dashboard';
+import { Fastfood, Accessibility,LocalHotel } from '@material-ui/icons';
 import CustomizedDot from '../components/CustomizedDot';
 import {AreaChart,YAxis,XAxis,CartesianGrid,Tooltip,Area,ResponsiveContainer,Legend} from 'recharts';
 import 
 {BrowserRouter as Router,Switch,Route}
 from 'react-router-dom';
-import {Avatar,Chip,Paper,makeStyles,Typography} from '@material-ui/core';
+import {Avatar,Chip,Paper,makeStyles,Typography,Grid} from '@material-ui/core';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    width:'100%',
+    height:'100%'
   },
 }));
 const data = [
@@ -35,7 +37,7 @@ const data = [
   {
     "name": "Барс",
     "jin": 50,
-    "undur": 175,
+    "undur": 15,
     "date":25
   },
   {
@@ -58,12 +60,19 @@ export default function FullWidthGrid(){
   const classes = useStyles();
 
   return (
-    <Paper style={{marginTop:20,height:'100%'}}>   
-       <div style={{width:'100%',display:'flex',flexDirection:'row',alignItems:'center'}}>
-          <Typography variant="h3" style={{color:'#88e3c9'}} gutterBottom>Statistic</Typography> 
-          <Typography variant="h4" gutterBottom>&nbsp;&nbsp; Last Month</Typography>
-       </div>
-       <ResponsiveContainer width='100%' height={300}>        
+    <div className={classes.root}>
+    <Paper style={{marginTop:20,height:'100%'}}> 
+     <Grid container  direction='column' justify='flex-start'>
+       <Grid item xs={12} direction='row' justify='flex-start' alignItems='flex-start'>  
+           <Grid item xs container> 
+            <a style={{color: '#21CBF3', fontSize: '40px',fontWeight:'bold'}}>Statistic</a>  
+           </Grid> 
+           <Grid> 
+            
+           </Grid>   
+       </Grid>
+       <Grid item xs={12}>   
+           <ResponsiveContainer width={'100%'} height={200}>        
               <AreaChart
                     data={data}
                     margin={{
@@ -82,15 +91,18 @@ export default function FullWidthGrid(){
                       </linearGradient>
                     </defs>
                  <Tooltip />
-                 <Area type="monotone" stroke='#3f51b5' activeDot={{r: 8}} dataKey="jin" stroke="#a2fae7" fill="url(#colorUv)" fillOpacity={0.3} />
-                 <Area type="monotone" dataKey="undur" stroke="#fca088" fill="url(#colorPv)" fillOpacity={0.3} />
+                 <Area type="monotone" stroke='#3f51b5' dot={{ stroke: '#21CBF3', strokeWidth: 12 }} strokeWidth={12} activeDot={{r: 8}} dataKey="jin" stroke="#a2fae7" fill="url(#colorUv)" fillOpacity={0.3} />
+                 <Area type="monotone" dataKey="undur" dot={{ stroke: '#FF8E53', strokeWidth: 12 }}  strokeWidth={12} stroke="#fca088" fill="url(#colorPv)" fillOpacity={0.3} />
               </AreaChart>  
-          </ResponsiveContainer>
-       <div style={{display:'flex',width:'100%'}}>
-            <Chip variant="outlined" style={{marginLeft:5,background: "linear-gradient( #3c8396,#88e3c9,#88d0e3)" }} label="Exersice " avatar={<Avatar></Avatar>} />           
-            <Chip variant="outlined" style={{marginLeft:9,background: "linear-gradient(#f0886c,#f5c1b3,#edac9a" }} label="Meals" avatar={<Avatar></Avatar>} />
-            <Chip variant="outlined" style={{marginLeft:9,background: "linear-gradient(#66d474,#95f0a0)" }} label="Sleep" avatar={<Avatar></Avatar>} />
-       </div>
+            </ResponsiveContainer>
+      </Grid>
+        <Grid item xs={12} direction='row' justify='flex-start'>   
+            <Chip variant="outlined" style={{marginLeft:5, background:'linear-gradient(45deg, #2196F3 30%, #21CBF3 90%)' }} label="Exersice " avatar={<Avatar style={{backgroundColor:'white'}}><Accessibility  style={{ color:'#21CBF3' }}/></Avatar>} />           
+            <Chip variant="outlined" style={{marginLeft:9, background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',}} label="Meals" avatar={<Avatar style={{backgroundColor:'white'}}><Fastfood style={{color:'#FF8E53'}}/></Avatar>} />
+            <Chip variant="outlined" style={{marginLeft:9, background:'linear-gradient(45deg, #32cd32 30%, #7cfc00 90%)', }} label="Sleep" avatar={<Avatar style={{backgroundColor:'white'}}>< LocalHotel style={{color:'#7cfc00'}} /></Avatar>} />   
+         </Grid>
+       </Grid>
     </Paper>
+    </div>
   );
 }

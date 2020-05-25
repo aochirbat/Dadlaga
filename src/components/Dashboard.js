@@ -4,17 +4,24 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import Divider from '@material-ui/core/Divider';
-import { Tooltip } from '@material-ui/core';
 import {Button, Avatar , Paper , Grid ,Badge , Box} from '@material-ui/core';
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
 import OutlinedFlagIcon from '@material-ui/icons/OutlinedFlag';
 import DateRangeOutlinedIcon from '@material-ui/icons/DateRangeOutlined';
 import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined';
+import Data from '../Data.json';
 import TimelineOutlinedIcon from '@material-ui/icons/TimelineOutlined';
-import CardMembershipOutlinedIcon from '@material-ui/icons/CardMembershipOutlined';
 import { grey } from '@material-ui/core/colors';
 import uxceo from "../Images/Avatar1.png";
+import {
+      BrowserRouter as Router,
+      Switch,
+      Route,
+      Link as Linkdom,
+      useRouteMatch,
+      useParams
+    } from 'react-router-dom';
+import dashboardStatistics from '../screens/DashboardStatistics';
 
 const useStyles = makeStyles((theme) => ({
  root: {
@@ -110,9 +117,8 @@ const StyledBadge = withStyles((theme) => ({
 export default function Dashboard(props){
   const [name,setName]=useState('');
   const [description,setDescription]=useState('')    
-  useEffect(()=>{
-           
-            setName(props.type==1?'Ochirbat Amar':'Golden Gym')
+  useEffect(()=>{       
+            setName(props.type==1?Data.userinfo.name:'Golden Gym')
             setDescription(props.type==1?'Male, 21 years old':'Fitness,Power,Yoga etc..')
   },[])  
   const classes = useStyles();
@@ -151,58 +157,52 @@ export default function Dashboard(props){
              <Grid container xs={12} direction="row">
               <Grid item xs={6}>
                     <div className={classes.userHeight}>
-                        <b style={{fontSize: '12px'}}>HEIGHT</b><br/>
-                        <a style={{fontSize: '10px'}}>185 cm</a>
+                  <b style={{fontSize: '12px'}}>HEIGHT</b><br/>
+                        <a style={{fontSize: '10px'}}>{Data.userinfo.height}</a>
                     </div>
               </Grid>
               <Grid item xs={6}>
                     <div className={classes.userWidth}>
                         <b style={{fontSize: '12px'}}>WIDTH</b><br/>
-                        <a style={{fontSize: '10px'}}>50 kg</a>
+                        <a style={{fontSize: '10px'}}>{Data.userinfo.weight}</a>
                     </div>
               </Grid>           
            </Grid>:null
          }
         <Grid item xs={12}>
         <div>
-          <List component="nav" aria-label="main mailbox folders">
-                  <ListItem button>
-                    <ListItemIcon>
+          <List component="nav">
+                  <ListItem button to="/Customer" component={Linkdom}>
+                        <ListItemIcon>
                         <HomeOutlinedIcon />
-                    </ListItemIcon>
-                        <ListItemText primary="Home" />
+                        </ListItemIcon>
+                        <ListItemText  primary="Home" />
                   </ListItem>
-                  <ListItem button>
+                  <ListItem button button to="/Customer/Mygoals" component={Linkdom}>
                      <ListItemIcon>
                         <OutlinedFlagIcon/>
                      </ListItemIcon>
-                         <ListItemText primary="My goals"/>
+                         <ListItemText primary={props.type==1?"My Goals":"Our Goals"}/>
                    </ListItem>
-                    <ListItem button>
+                    <ListItem button button to="/Customer/Schedule" component={Linkdom}>
                       <ListItemIcon>
                         <DateRangeOutlinedIcon/>
                      </ListItemIcon>
                         <ListItemText primary="Schedule"/>
                   </ListItem>
-                  <ListItem button>
+                  <ListItem button to="/Customer/Statistic" component={Linkdom}>
                         <ListItemIcon>
                               <TimelineOutlinedIcon/>
                         </ListItemIcon>
                         <ListItemText primary="Statistics"/>
                   </ListItem>
-                  <ListItem button>
-                        <ListItemIcon>
-                              <CardMembershipOutlinedIcon/>
-                        </ListItemIcon>
-                        <ListItemText primary="Achivements"/>
-                  </ListItem>
-                  <ListItem button>
+                  <ListItem button button to="/Customer/Settings" component={Linkdom}>
                         <ListItemIcon>
                               <SettingsOutlinedIcon/>
                         </ListItemIcon>
                         <ListItemText primary="Settings"/>
                   </ListItem>
-          </List>
+          </List>      
       </div>
         </Grid>
          <Grid item xs={12}>
@@ -213,5 +213,6 @@ export default function Dashboard(props){
          
      </div>
         </Paper>
+        
   );
 }
