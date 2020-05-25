@@ -5,7 +5,27 @@ import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
 import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import ArrowBackIosIcon from '@material-ui/icons/ArrowBackIos';
 import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
+import FitnessIcon from '../Images/icons/sport.png';
+import mealIcon from '../Images/icons/meal.png';
+import sleepIcon from '../Images/icons/sleep.png';
+import neg from '../Images/slider/1.jpg';
+import hoyr from '../Images/slider/2.jpg';
+import guraw from '../Images/slider/3.jpg';
+import { Pie, PieChart, Sector } from 'recharts';
+import Carousel from '@brainhubeu/react-carousel';
+import '@brainhubeu/react-carousel/lib/style.css';
 
+
+const data02 = [
+  {
+    "name": "Group A",
+    "value": 2400
+  },
+  {
+    "name": "Group B",
+    "value": 4567
+  },
+];
 const useStyles = makeStyles((theme) => ({
   root:{
     flexGrow: 1,
@@ -16,53 +36,152 @@ const useStyles = makeStyles((theme) => ({
     background: theme.background,
     border: 0,
     fontSize: 16,
-    borderRadius: 3,
+    borderRadius: 20,
     boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
     color: 'white',
-    padding: theme.spacing(10,0,10),
   },
   Goal:{
     textAlign: 'left',
 
   },
-  slideButton:{
-    marginBottom: theme.spacing(2),
+  iconFitness: {
+    padding: theme.spacing(1),
+    marginLeft: 'auto',
+    marginRight: '20px',
+    width: '80px',
+    height: '80px',
+    
+  },
+  cardText:{
+    textAlign: 'left',
+    padding: theme.spacing(2),
   }
-
+ 
 }));
   function DeepChild1() {
     const classes = useStyles();
     return (
-        <Paper className={classes.paper1}>
-            Theming
-        </Paper>
+    <Grid container direction="row" className={classes.paper1}>
+      <Grid container xs={12} >
+        <Grid item xs={5}>
+          <div>
+            <div style={{paddingLeft: 'right'}}>
+              <img src={FitnessIcon} alt="logo" className={classes.iconFitness} />
+            </div>
+              <div className={classes.cardText}>
+              <a style={{fontSize:'20px',fontWeight: 'bold'}}>10 Exercise</a><br/>
+              <a style={{fontSize:'12px'}}>1 hour X minutes</a>
+              </div>
+          </div>
+          <Grid item xs={7}>
+              {/* <PieChart >
+                <Pie data={data02} dataKey='value' cx='50%' cy='50%' innerRadius={50} outerRadius={70} fill='#ffffff' fill/>
+              </PieChart> */}
+          </Grid>
+        </Grid>
+       </Grid>
+    </Grid>
+        
     );
   }
   function DeepChild2() {
     const classes = useStyles();
     return (
-        <Paper className={classes.paper1}>
-            Theming
-        </Paper>
+      <Grid container direction="row" className={classes.paper1}>
+      <Grid container xs={12} >
+        <Grid item xs={5}>
+          <div>
+              <div >
+                <img src={mealIcon} alt="logo" className={classes.iconFitness} />
+              </div>
+              <div className={classes.cardText}>
+                <a style={{fontSize:'20px' , fontWeight:'bold'}}>6 Meals</a><br/>
+                <a style={{fontSize:'12px'}}>1604.0 cal</a>
+              </div>
+            </div>
+          <Grid item xs={7}>
+            <div>
+              {/* <PieChart >
+                <Pie data={data02} dataKey='value' cx='50%' cy='50%' innerRadius={50} outerRadius={70} fill='#ffffff' fill/>
+              </PieChart> */}
+            </div>
+          </Grid>
+        </Grid>
+       </Grid>
+    </Grid>
     );
   }
   function DeepChild3() {
     const classes = useStyles();
     return (
-        <Paper className={classes.paper1}>
-            Theming
-        </Paper>
+      <Grid container direction="row" className={classes.paper1}>
+        <Grid container xs={12} >
+            <Grid item xs={5}>
+          
+            <div>
+              <div >
+                <img src={sleepIcon} alt="logo" className={classes.iconFitness} />
+              </div>
+              <div className={classes.cardText}>
+                <a style={{fontSize:'20px' , fontWeight:'bold'}}>10 Hours</a><br/>
+                <a style={{fontSize:'12px'}}>2 Day</a>
+              </div>
+            </div>
+          
+          <Grid item xs={7}>
+              {/* <PieChart >
+                <Pie data={data02} dataKey='value' cx='50%' cy='50%' innerRadius={50} outerRadius={70} fill='#ffffff' fill/>
+              </PieChart> */}
+          </Grid>
+        </Grid>
+       </Grid>
+    </Grid>
     );
   }
+  function DeepChild4() {
+    const classes = useStyles();
+    return (
+      <Grid container direction="row" className={classes.paper1}>
+        <Grid container xs={12} >
+          
+              <Grid item xs={5}>
+            <div>
+                <div>
+                    <img src={sleepIcon} alt="logo" className={classes.iconFitness} />
+                </div>
+                <div className={classes.cardText}>
+                    <a style={{fontSize:'20px' , fontWeight:'bold'}}>10 Hours</a><br/>
+                    <a style={{fontSize:'12px'}}>2 Day</a>
+                </div>
+            </div>
+            </Grid>
+            <Grid item xs={7}>
+              <div>
+              {/* <PieChart width={500} height={20}>
+                <Pie data={data02} dataKey='value' cx='50%' cy='50%' innerRadius={50} outerRadius={70} fill='#ffffff' fill/>
+              </PieChart> */}
+              </div>
+            </Grid>
+          
+       
+         </Grid>
+      </Grid>
+    );
+  }
+  
 const themepaper1 = {
-  background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+  background: 'linear-gradient(45deg, #2196F3 30%, #21CBF3 90%)',
 };
 const themepaper2={
-  background:'linear-gradient(45deg, #2196F3 30%, #21CBF3 90%)',
+  background:'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
 };
 const themepaper3={
   background:'linear-gradient(45deg, #32cd32 30%, #7cfc00 90%)',
 }
+const themepaper4={
+  background:'linear-gradient(45deg, #ff6699 30%, #ff99bb 90%)',
+}
+
 export default function Control(){
   const classes = useStyles();
   const theme = useTheme();
@@ -82,50 +201,44 @@ export default function Control(){
   };
   return(
       <div className={classes.root}>
-    <Grid 
-    container 
-    direction='column' 
-    justify='flex-start'>
-          <Grid container xs={12}>
-            <Grid item xs>
-              <div className={classes.Goal}>
+ <Grid containerdirection='column' justify='flex-start'>
+    <Grid container xs={12}>
+        <Grid item xs>
+            <div className={classes.Goal}>
                 <a style={{color: '#03f0fe', fontSize: '11px'}}>GOAL</a><br/>
                 <a style={{color: 'black', fontSize: '30px'}}>Build Muscles</a>
-              </div>
-            </Grid>
-            <Grid item xs>
-
-            </Grid>
-            <Grid item xs>
-              <div className={classes.slideButton}>
-               <IconButton>
-                  <ArrowBackIosIcon fontSize='small'/>
-               </IconButton>
-               <IconButton>
-                  <ArrowForwardIosIcon fontSize='small' />
-               </IconButton>
-              </div>
-            </Grid>
-          </Grid>
-        <Grid container direction='row' xs={12} spacing={1}>
-         <Grid item xs>
-           <ThemeProvider theme={themepaper1}>
-            <DeepChild1/>
-           </ThemeProvider>
-         </Grid>
-         <Grid item xs>
-           <ThemeProvider theme={themepaper2}>
-             <DeepChild2/>
-           </ThemeProvider>
-         </Grid>
-          <Grid item xs>
-            <ThemeProvider theme={themepaper3}>
-               <DeepChild3/>
-            </ThemeProvider>
-          </Grid>
-        </Grid> 
-     
+            </div>
+        </Grid>
+        <Grid item xs></Grid>
+        <Grid item xs>
+         
+        </Grid>
     </Grid>
+    <Grid container xs={12}>
+    <Carousel arrows 
+    slidesPerPage={5}
+    slidesPerScroll={1}
+    animationSpeed={1000}
+    autoPlay={2000}
+    stopAutoPlayOnHover
+    offset={50}
+    itemWidth={350}
+    clickToChange>
+      <ThemeProvider theme={themepaper1}>
+       <DeepChild1/>
+       </ThemeProvider>
+       <ThemeProvider theme={themepaper2}>
+       <DeepChild2/>
+       </ThemeProvider>
+       <ThemeProvider theme={themepaper3}>
+       <DeepChild3/>
+       </ThemeProvider>
+       <ThemeProvider theme={themepaper4}>
+       <DeepChild4/>
+       </ThemeProvider>
+    </Carousel>
+    </Grid>
+</Grid>
       </div>
   )
 };

@@ -3,6 +3,7 @@ import DashboardNavBar from '../components/DashboardNavbar';
 import Dashboard from '../components/Dashboard';
 import DashboardStatic from '../components/DashboardStatic';
 import DashboardControl from '../components/DashboardControl';
+import dashboardStatistics from '../components/dashboardStatistics'
 import 
 {BrowserRouter as Router,Switch,Route}
 from 'react-router-dom';
@@ -33,11 +34,13 @@ export default function FullWidthGrid(){
                  <Grid item xs={10}>
                  <div style={{flex:1,flexDirection:'row',marginTop:50}}>      
                     <Grid container direction='column' spacing={1}>
-                      <DashboardControl/>
-                      <DashboardStatic/>
+                                      <DashboardControl/>
+                                      <DashboardStatic/>
+                            
                     </Grid>
                  </div>
-                 </Grid>
+            </Grid>
+            
         </Grid>
       </div>
     </div>

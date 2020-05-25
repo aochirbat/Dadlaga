@@ -15,6 +15,15 @@ import TimelineOutlinedIcon from '@material-ui/icons/TimelineOutlined';
 import CardMembershipOutlinedIcon from '@material-ui/icons/CardMembershipOutlined';
 import { grey } from '@material-ui/core/colors';
 import uxceo from "../Images/Avatar1.png";
+import {
+      BrowserRouter as Router,
+      Switch,
+      Route,
+      Link as Linkdom,
+      useRouteMatch,
+      useParams
+    } from 'react-router-dom';
+import dashboardStatistics from './dashboardStatistics';
 
 const useStyles = makeStyles((theme) => ({
  root: {
@@ -165,7 +174,7 @@ export default function Dashboard(props){
          }
         <Grid item xs={12}>
         <div>
-          <List component="nav" aria-label="main mailbox folders">
+          <List component="nav">
                   <ListItem button>
                     <ListItemIcon>
                         <HomeOutlinedIcon />
@@ -184,7 +193,7 @@ export default function Dashboard(props){
                      </ListItemIcon>
                         <ListItemText primary="Schedule"/>
                   </ListItem>
-                  <ListItem button>
+                  <ListItem button to="/stat">
                         <ListItemIcon>
                               <TimelineOutlinedIcon/>
                         </ListItemIcon>
@@ -192,17 +201,11 @@ export default function Dashboard(props){
                   </ListItem>
                   <ListItem button>
                         <ListItemIcon>
-                              <CardMembershipOutlinedIcon/>
-                        </ListItemIcon>
-                        <ListItemText primary="Achivements"/>
-                  </ListItem>
-                  <ListItem button>
-                        <ListItemIcon>
                               <SettingsOutlinedIcon/>
                         </ListItemIcon>
                         <ListItemText primary="Settings"/>
                   </ListItem>
-          </List>
+          </List>      
       </div>
         </Grid>
          <Grid item xs={12}>
@@ -213,5 +216,6 @@ export default function Dashboard(props){
          
      </div>
         </Paper>
+        
   );
 }
