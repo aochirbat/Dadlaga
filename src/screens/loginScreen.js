@@ -1,125 +1,116 @@
-import React from 'react';
-import {Typography,Grid,Box,Paper,Link,Checkbox,FormControlLabel,TextField,CssBaseline,Button,Avatar} from '@material-ui/core';
+import React, { useState } from 'react';
+import Avatar from '@material-ui/core/Avatar';
+import Button from '@material-ui/core/Button';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import TextField from '@material-ui/core/TextField';
+import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Checkbox from '@material-ui/core/Checkbox';
+import Link from '@material-ui/core/Link';
+import Grid from '@material-ui/core/Grid';
+import Box from '@material-ui/core/Box';
+import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
+import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
-import Back from '../assets/loginbackground.png';
-import RightImage from '../assets/bottom.png';
-import HomeScreen from './HomeScreen';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link as Linkdom,
-  useRouteMatch,
-  useParams
-} from 'react-router-dom';
+import Container from '@material-ui/core/Container';
+import Switch from '@material-ui/core/Switch';
+
 const useStyles = makeStyles((theme) => ({
-  root: {
-    height: '100vh',
-  },
-  image: {
-    backgroundImage: `url(${Back})`,
-    backgroundRepeat: 'no-repeat',
-    backgroundColor:
-      theme.palette.type === 'light' ? theme.palette.grey[50] : theme.palette.grey[900],
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-  },
+  
   paper: {
-    margin: theme.spacing(8, 4),
-    
+    margin: theme.spacing(20,4),
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main,
+    backgroundColor: theme.palette.primary.main,
   },
   form: {
     width: '100%', // Fix IE 11 issue.
     marginTop: theme.spacing(1),
   },
-  left:{
-    backgroundImage: `url(${RightImage})`,
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover',
-    backgroundPosition: 'center',
-  },
   submit: {
-    margin: theme.spacing(3, 0, 2),
+    margin: theme.spacing(1, 0, 2),
   },
 }));
 
-export default function SignInSide() {
+export default function SignIn() {
   const classes = useStyles();
+
+  const [switched,setSwitched]=useState(true)
+  const handleChange=(e)=>{
+    setSwitched(e.target.checked)
+  }
   return (
-      <Grid container component="main" className={classes.root}>
-       <CssBaseline />
-       <Grid item xs={12} sm={8} md={5} className={classes.left}  component={Paper} elevation={6} square>
-        <div className={classes.paper}>
-         
-          <Typography component="h1" variant="h5">
-            Нэвтрэх
-          </Typography>
-          <form className={classes.form} noValidate>
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              id="email"
-              label="Хэрэглэгчийн нэр"
-              name="email"
-              autoComplete="email"
-              autoFocus
-            />
-            <TextField
-              variant="outlined"
-              margin="normal"
-              required
-              fullWidth
-              name="password"
-              label="Нууц үг"
-              type="password"
-              id="password"
-              autoComplete="current-password"
-            />
-            <FormControlLabel
-              control={<Checkbox value="remember" color="primary" />}
-              label="Сануулах"
-            />
-            <Button
-              type="submit"
-              fullWidth
-              to="/home"
-              variant="contained"
-              color="primary"
-              component={Linkdom}
-              className={classes.submit}
-             // onClick={() =>{alert('toHome')}}
-            >
-              Нэвтрэх
-            </Button>
-            <Grid container >
-              <Grid item xs>
-                <Link href="#" variant="body2">
-               
-                </Link>
-              </Grid>
-              <Grid item>
-                <Link href="#" variant="body2">
-                  {"Бүртгүүлэх ?"}
-                </Link>
-              </Grid>
+    <Container component="main" maxWidth="xs">
+      <CssBaseline />
+      <div className={classes.paper}>
+        <Avatar className={classes.avatar}>
+          <LockOutlinedIcon />
+        </Avatar>
+        <Typography component="h1" variant="h5" color="primary">
+          Нэвтрэх
+          
+        </Typography>
+        <form className={classes.form} noValidate>
+        <FormControlLabel
+        control={<Switch checked={switched} onChange={handleChange} name="checkedA" />}
+        label="Secondary"
+      />
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            id="email"
+            label="И-мэйл хаяг"
+            name="email"
+            autoComplete="email"
+            autoFocus
+          />
+          <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            name="password"
+            label="Код"
+            type="password"
+            id="password"
+            autoComplete="current-password"
+          />
+          <FormControlLabel
+            control={<Checkbox value="remember" color="primary" />}
+            label="Сануулах" style={{color: 'black'}}
+          />
+          <Button
+            type="submit"
+            fullWidth
+            to="/home"
+            variant="contained"
+            color="primary"
+            className={classes.submit}
+              // onClick={() =>{alert('toHome')}}
+          >
+           Нэвтрэх
+          </Button>
+          <Grid container>
+            <Grid item xs>
+              <Link href="#" variant="body2">
+              {"Кодоо мартсан?"}
+              </Link>
             </Grid>
-           
-          </form>
-        </div>
-       </Grid>
-      <Grid item xs={false} sm={4} md={7} className={classes.image} />
-        
-     </Grid>
-    
+            <Grid item xs>
+              <Link href="#" variant="body2">
+                {"Бүртгүүлэх"}
+              </Link>
+            </Grid>
+          </Grid>
+        </form>
+      </div>
+      <Box mt={100}>
+      </Box>
+    </Container>
   );
 }
-  
