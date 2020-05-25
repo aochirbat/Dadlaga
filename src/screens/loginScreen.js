@@ -13,6 +13,9 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Switch from '@material-ui/core/Switch';
+import 
+{BrowserRouter as Router,Route,Link as Linkdom}
+from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
   
@@ -87,7 +90,8 @@ export default function SignIn() {
           <Button
             type="submit"
             fullWidth
-            to="/home"
+            to="/Customer"
+            component={Linkdom}
             variant="contained"
             color="primary"
             className={classes.submit}
