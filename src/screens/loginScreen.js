@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -12,6 +12,8 @@ import LockOutlinedIcon from '@material-ui/icons/LockOutlined';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
+import Switch from '@material-ui/core/Switch';
+
 const useStyles = makeStyles((theme) => ({
   
   paper: {
@@ -36,6 +38,10 @@ const useStyles = makeStyles((theme) => ({
 export default function SignIn() {
   const classes = useStyles();
 
+  const [switched,setSwitched]=useState(true)
+  const handleChange=(e)=>{
+    setSwitched(e.target.checked)
+  }
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -48,6 +54,10 @@ export default function SignIn() {
           
         </Typography>
         <form className={classes.form} noValidate>
+        <FormControlLabel
+        control={<Switch checked={switched} onChange={handleChange} name="checkedA" />}
+        label="Secondary"
+      />
           <TextField
             variant="outlined"
             margin="normal"
@@ -72,7 +82,7 @@ export default function SignIn() {
           />
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
-            label="Сануулах"
+            label="Сануулах" style={{color: 'black'}}
           />
           <Button
             type="submit"
