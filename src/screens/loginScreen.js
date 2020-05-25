@@ -13,6 +13,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Switch from '@material-ui/core/Switch';
+import Data from '../Data.json';
 import 
 {BrowserRouter as Router,Route,Link as Linkdom}
 from 'react-router-dom';
@@ -38,12 +39,19 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
 export default function SignIn() {
   const classes = useStyles();
-
+  const [name,setName]=useState('');
   const [switched,setSwitched]=useState(true)
   const handleChange=(e)=>{
     setSwitched(e.target.checked)
+  }
+  const save = (e) => {
+    Data.userinfo.name = name;
+  }
+  const saveName =(e)=>{
+    setName(e.target.value)
   }
   return (
     <Container component="main" maxWidth="xs">
@@ -71,6 +79,8 @@ export default function SignIn() {
             name="email"
             autoComplete="email"
             autoFocus
+            value={name}
+            onChange={saveName}
           />
           <TextField
             variant="outlined"
@@ -90,12 +100,12 @@ export default function SignIn() {
           <Button
             type="submit"
             fullWidth
-            to="/Customer"
-            component={Linkdom}
+            // to="/Customer"
+            // component={Linkdom}
             variant="contained"
             color="primary"
             className={classes.submit}
-              // onClick={() =>{alert('toHome')}}
+            onClick={save}
           >
            Нэвтрэх
           </Button>
