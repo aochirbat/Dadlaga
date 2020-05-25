@@ -60,7 +60,6 @@ export default function FullWidthGrid(){
   const classes = useStyles();
 
   return (
-<<<<<<< HEAD
     <div className={classes.root}>
     <Paper style={{marginTop:20,height:'100%'}}> 
      <Grid container  direction='column' justify='flex-start'>
@@ -74,14 +73,6 @@ export default function FullWidthGrid(){
        </Grid>
        <Grid item xs={12}>   
            <ResponsiveContainer width={'100%'} height={200}>        
-=======
-    <Paper style={{marginTop:20,height:'100%'}}>   
-       <div style={{width:'100%',display:'flex',flexDirection:'row',alignItems:'center'}}>
-          <Typography variant="h3" style={{color:'#88e3c9'}} gutterBottom>Statistic</Typography> 
-          <Typography variant="h4" gutterBottom>&nbsp;&nbsp; Last Month</Typography>
-       </div>
-       <ResponsiveContainer width='100%' height={100}>        
->>>>>>> 34f45fa3ca755fc4d81d0c5b40448bb6f6bebd17
               <AreaChart
                     data={data}
                     margin={{

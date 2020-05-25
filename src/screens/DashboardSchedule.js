@@ -41,7 +41,7 @@ export default function (){
     return(
       <div className={classes.root}>
         <Container maxWidth='sm'>
-          <Paper>hahahahahahhahah</Paper>
+          <Paper>Schedule</Paper>
         </Container>
       </div>
         

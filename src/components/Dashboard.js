@@ -4,15 +4,12 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import Divider from '@material-ui/core/Divider';
-import { Tooltip } from '@material-ui/core';
 import {Button, Avatar , Paper , Grid ,Badge , Box} from '@material-ui/core';
 import HomeOutlinedIcon from '@material-ui/icons/HomeOutlined';
 import OutlinedFlagIcon from '@material-ui/icons/OutlinedFlag';
 import DateRangeOutlinedIcon from '@material-ui/icons/DateRangeOutlined';
 import SettingsOutlinedIcon from '@material-ui/icons/SettingsOutlined';
 import TimelineOutlinedIcon from '@material-ui/icons/TimelineOutlined';
-import CardMembershipOutlinedIcon from '@material-ui/icons/CardMembershipOutlined';
 import { grey } from '@material-ui/core/colors';
 import uxceo from "../Images/Avatar1.png";
 import {
@@ -23,7 +20,7 @@ import {
       useRouteMatch,
       useParams
     } from 'react-router-dom';
-import dashboardStatistics from './dashboardStatistics';
+import dashboardStatistics from '../screens/DashboardStatistics';
 
 const useStyles = makeStyles((theme) => ({
  root: {
@@ -175,31 +172,31 @@ export default function Dashboard(props){
         <Grid item xs={12}>
         <div>
           <List component="nav">
-                  <ListItem button>
-                    <ListItemIcon>
+                  <ListItem button to="/Customer" component={Linkdom}>
+                        <ListItemIcon>
                         <HomeOutlinedIcon />
-                    </ListItemIcon>
-                        <ListItemText primary="Home" />
+                        </ListItemIcon>
+                        <ListItemText  primary="Home" />
                   </ListItem>
-                  <ListItem button>
+                  <ListItem button button to="/Customer/Mygoals" component={Linkdom}>
                      <ListItemIcon>
                         <OutlinedFlagIcon/>
                      </ListItemIcon>
-                         <ListItemText primary="My goals"/>
+                         <ListItemText primary="My Goals"/>
                    </ListItem>
-                    <ListItem button>
+                    <ListItem button button to="/Customer/Schedule" component={Linkdom}>
                       <ListItemIcon>
                         <DateRangeOutlinedIcon/>
                      </ListItemIcon>
                         <ListItemText primary="Schedule"/>
                   </ListItem>
-                  <ListItem button to="/stat">
+                  <ListItem button to="/Customer/Statistic" component={Linkdom}>
                         <ListItemIcon>
                               <TimelineOutlinedIcon/>
                         </ListItemIcon>
                         <ListItemText primary="Statistics"/>
                   </ListItem>
-                  <ListItem button>
+                  <ListItem button button to="/Customer/Settings" component={Linkdom}>
                         <ListItemIcon>
                               <SettingsOutlinedIcon/>
                         </ListItemIcon>

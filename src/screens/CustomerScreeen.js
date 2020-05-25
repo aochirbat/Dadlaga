@@ -1,9 +1,11 @@
 import React from 'react';
 import DashboardNavBar from '../components/DashboardNavbar';
 import Dashboard from '../components/Dashboard';
-import DashboardStatic from '../components/DashboardStatic';
-import DashboardControl from '../components/DashboardControl';
-import dashboardStatistics from '../components/dashboardStatistics'
+import DashboardMygoals from './DashboardMygoals';
+import DashboardStatistics from './DashboardStatistics';
+import DashboardSchedule from './DashboardSchedule';
+import DashBoardSettings from './DashBoardSettings';
+import DashboarHome from './DashboardHome'
 import 
 {BrowserRouter as Router,Switch,Route}
 from 'react-router-dom';
@@ -13,9 +15,10 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
 }));
-export default function FullWidthGrid(){
+export default function Customer(props){
   const classes = useStyles();
   return (
+    <Router>
     <div style={{width:'100%',height:'100%',flexGrow:1}}>
        <div style={{flex:1,flexDirection:'column'}}>
          <div style={{flexGrow:1}}>
@@ -33,16 +36,22 @@ export default function FullWidthGrid(){
                  {/* statistic side */}
                  <Grid item xs={10}>
                  <div style={{flex:1,flexDirection:'row',marginTop:50}}>      
-                    <Grid container direction='column' spacing={1}>
-                                      <DashboardControl/>
-                                      <DashboardStatic/>
+                   
+                      <Switch>                                      
+                                      <Route path={props.match.path} exact component={DashboarHome}/> 
+                                      <Route path={`${props.match.path}/Statistic`} component={DashboardStatistics}/> 
+                                      <Route path={`${props.match.path}/Schedule`}  component={DashboardSchedule}/>    
+                                      <Route path={`${props.match.path}/Mygoals`} component={DashboardMygoals}/>    
+                                      <Route path={`${props.match.path}/Settings`}  component={DashBoardSettings}/>                                                                                 
+                      </Switch>
                             
-                    </Grid>
+                    
                  </div>
             </Grid>
             
-        </Grid>
+        </Grid>    
       </div>
     </div>
+    </Router>
   );
 }
