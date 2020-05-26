@@ -69,7 +69,7 @@ export default function ButtonAppBar() {
                       
                       <Grid container xs={4} justify="flex-end"
               alignItems="center">
-                      <IconButton to='/login' component={Linkdom}>
+                      <IconButton to='/login' component={Linkdom} color="se">
                         <AccountCircleOutlinedIcon fontSize='large'/>
                       </IconButton>
                       </Grid>
