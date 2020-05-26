@@ -19,7 +19,9 @@ import
 from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
-  
+  root:{
+    flexGrow: 1,
+  },
   paper: {
     margin: theme.spacing(20,4),
     display: 'flex',
@@ -54,8 +56,10 @@ export default function SignIn() {
     setName(e.target.value)
   }
   return (
-    <Container component="main" maxWidth="xs">
+    <div className={classes.root}>
+      <Container maxWidth="xs">
       <CssBaseline />
+
       <div className={classes.paper}>
         <Avatar className={classes.avatar}>
           <LockOutlinedIcon />
@@ -123,8 +127,7 @@ export default function SignIn() {
           </Grid>
         </form>
       </div>
-      <Box mt={100}>
-      </Box>
     </Container>
+    </div>
   );
 }

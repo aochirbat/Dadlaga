@@ -13,23 +13,25 @@ import {Container,Grid,Paper,makeStyles} from '@material-ui/core';
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    width:'100%',
+    height:'100%'
   },
 }));
 export default function Customer(props){
   const classes = useStyles();
   return (
     <Router>
-    <div style={{width:'100%',height:'100%',flexGrow:1}}>
+    <div className={classes.root}>
        <div style={{flex:1,flexDirection:'column'}}>
-         <div style={{flexGrow:1}}>
+         <div className={classes.root}>
            <DashboardNavBar/>
          </div> 
-         <Grid container direction="row"  xs={12} spacing={2}>
+         <Grid container direction="row"  xs={12} spacing={2} style={{marginTop:30 }}>
                 {/* left dashboard */}
                 <Grid item xs={2}>
                  <div style={{flexDirection:'row'}}>                                 
                     <div style={{flexDirection:'row',width:'100%',marginTop:50}}>                       
-                       <Dashboard  type={1}/>
+                       <Dashboard  type={2}/>
                    </div>
                  </div>
                  </Grid>
@@ -49,9 +51,10 @@ export default function Customer(props){
                  </div>
             </Grid>
             
-        </Grid>    
+          </Grid>    
+        </div>
       </div>
-    </div>
+   
     </Router>
   );
 }
