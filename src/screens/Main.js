@@ -1,7 +1,7 @@
 import React from 'react';
 import Home from './HomeScreen';
 import Login from './loginScreen';
-import Navbar from '../components/Navbar';
+
 import Notif from  './notif';
 import Customer from './CustomerScreeen';
 import 
@@ -11,7 +11,7 @@ function Main() {
   return (
     
           <Router>
-             <Navbar/>
+             
              <Switch>
              <Route path="/" exact component={Home}/>         
              <Route path="/Login" component={Login}/>
