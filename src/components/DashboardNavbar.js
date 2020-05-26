@@ -82,7 +82,7 @@ export default function PrimarySearchAppBar() {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <AppBar position="fixed" color="main">
+      <AppBar color="main">
         <Toolbar>
           <Grid item xs={3}>
           <Typography className={classes.title} variant="h5"  noWrap>
